@@ -20,13 +20,15 @@
     "build": "npm run dist && npm run standalone",
     "gh-pages-build": "npm run prebuild && npm run demo-dist",
     "postversion": "git push && git push --tags",
-    "prepublish": "npm run dist && npm run standalone"
+    "prepublish": "npm run snyk-protect; npm run dist && npm run standalone",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "react-autowhatever": "^5.3.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.1",
-    "shallow-equal": "^1.0.0"
+    "shallow-equal": "^1.0.0",
+    "snyk": "^1.189.0"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.1"
@@ -120,5 +122,6 @@
     ],
     "check-coverage": true
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
